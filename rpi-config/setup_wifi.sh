@@ -8,15 +8,13 @@ if [[ "$EUID" -ne 0 ]]; then
     exit
 fi
 
-echo "Enter an SSID >>> "
-read SSID
+read -r -p "Enter an SSID >>> " SSID
 
 # check that the given SSID exists
 if [[ -z "$SSID" ]]; then
     echo "No SSID provided... Aborting Wi-Fi config and rebooting."
 elif [[ $(sudo iw dev wlan0 scan | grep "$SSID") ]]; then
-    echo "Enter the password for the SSID >>> "
-    read SSID_PASSWD
+    read -r -p "Enter the password for the SSID >>> " SSID_PASSWD
     if [[ ! -z "$SSID_PASSWD" ]]; then
         WPA_SUPPLICANT_FILE=/etc/wpa_supplicant/wpa_supplicant.conf
         echo "" >> $WPA_SUPPLICANT_FILE
