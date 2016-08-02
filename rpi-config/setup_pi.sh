@@ -2,8 +2,8 @@
 # Script to setup a Raspberry Pi for the first time
 
 # set paths to our configuration files
-$RPI_MAINTENANCE_FILE=maintain_pi.sh
-$RPI_WIFI_SETUP_FILE=setup_wifi.sh
+RPI_MAINTENANCE_FILE=maintain_pi.sh
+RPI_WIFI_SETUP_FILE=setup_wifi.sh
 
 # first, verify that the user is root
 if [[ $EUID -ne 0 ]]; then 
